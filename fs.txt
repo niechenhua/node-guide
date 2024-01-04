@@ -1,0 +1,87 @@
+这是fs模块的txt文件
+
+## 目录
+
+- [fs.txt](#fstxt)
+  - [目录](#目录)
+  - [1. fs模块](#1-fs模块)
+  - [2. 异步I/O](#2-异步io)
+  - [3. 同步I/O](#3-同步io)
+  - [4. 异步I/O的错误处理](#4-异步io的错误处理)
+  - [5. 异步I/O的回调](#5-异步io的回调)
+  - [6. 异步I/O的异常处理](#6-异步io的异常处理)
+
+## 1. fs模块
+
+fs模块是Node.js提供的用于操作文件系统的核心模块，它提供了异步和同步两种API。
+
+## 2. 异步I/O
+
+异步I/O是指在一个进程中，一个线程可以同时执行多个任务，但是在执行过程中，必须等待一个任务的完成，才能执行下一个任务。这可以提高系统的并发处理能力。
+
+在Node.js中，异步I/O是通过回调函数和事件驱动机制实现的。当一个异步操作完成时，Node.js会把结果通过回调函数返回给调用者。
+
+## 3. 同步I/O
+
+同步I/O是指在一个进程中，一个线程只能执行一个任务，其他任务必须等待当前任务完成才能执行。
+
+在Node.js中，同步I/O是通过系统调用实现的。当一个同步操作完成时，Node.js会立即返回结果。
+
+## 4. 异步I/O的错误处理
+
+异步I/O的错误处理可以通过回调函数的第二个参数来处理。
+
+```js
+fs.readFile(filename, 'utf8', function (err, data) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log(data);
+});
+```
+
+## 5. 异步I/O的回调
+
+异步I/O的回调函数有两个参数，第一个参数是错误对象，第二个参数是结果对象。
+
+```js
+fs.readFile(filename, 'utf8', function (err, data) {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log(data);
+});
+```
+
+## 6. 异步I/O的异常处理
+
+异步I/O的异常处理可以通过try...catch语句来处理。
+
+```js
+try {
+  fs.readFile(filename, 'utf8', function (err, data) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(data);
+  });
+} catch (err) {
+  console.log(err);
+}
+在Node.js中，异步I/O的异常处理与同步I/O的异常处理是一样的。
+
+Node.js的异常处理机制是通过try...catch语句来处理的。
+
+```js
+try {
+  fs.readFile(filename, 'utf8', function (err, data) {
+    if (err) {
+      console.log(err);
+    }
+  })
+} catch (err) {
+  console.log(err);
+}
